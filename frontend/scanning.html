@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteGuard AI - Scanning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="logo">🛡 SITEGUARD AI</div>
+    <div class="status">
+        <span class="status-dot"></span>
+        AI SYSTEM ONLINE
+    </div>
+</header>
+
+<main class="page">
+
+    <section class="hero-small">
+        <p class="tag">AI SAFETY MONITORING</p>
+        <h1>SCAN CONSTRUCTION SITE</h1>
+        <p>
+            Select a camera source and start the AI safety scan.
+        </p>
+    </section>
+
+    <!-- CAMERA OPTIONS -->
+
+    <div class="scan-options">
+
+        <div class="scan-card" onclick="selectSource('Mobile Camera', this)">
+            <div class="scan-icon">📱</div>
+            <h3>Mobile Camera</h3>
+            <p>Use your mobile or laptop camera</p>
+        </div>
+
+        <div class="scan-card" onclick="selectSource('Drone Camera', this)">
+            <div class="scan-icon">🚁</div>
+            <h3>Drone Camera</h3>
+            <p>Analyze aerial construction footage</p>
+        </div>
+
+        <div class="scan-card" onclick="selectSource('CCTV Camera', this)">
+            <div class="scan-icon">📹</div>
+            <h3>CCTV Camera</h3>
+            <p>Analyze site surveillance footage</p>
+        </div>
+
+    </div>
+
+    <!-- CAMERA -->
+
+    <div id="cameraSection" class="camera-section">
+
+        <div class="camera-box">
+
+            <video
+                id="cameraPreview"
+                autoplay
+                muted
+                playsinline>
+            </video>
+
+            <div id="cameraMessage" class="camera-message">
+                Select Mobile Camera to activate camera
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FILE -->
+
+    <div id="fileSection" class="file-section">
+
+        <label for="siteFile">
+            Select image or video
+        </label>
+
+        <input
+            type="file"
+            id="siteFile"
+            accept="image/*,video/*">
+
+    </div>
+
+    <!-- SELECTED SOURCE -->
+
+    <div class="selected-source">
+        Selected Source:
+        <strong id="selectedSource">
+            None
+        </strong>
+    </div>
+
+    <!-- SCAN BUTTON -->
+
+    <button
+        id="scanButton"
+        class="btn primary scan-btn"
+        onclick="startAIScan()">
+
+        🤖 START AI SCAN
+
+    </button>
+
+    <!-- PROGRESS -->
+
+    <div id="progressSection" class="progress-section">
+
+        <div class="progress-text">
+            <span id="progressMessage">
+                Preparing AI scan...
+            </span>
+
+            <span id="progressPercent">
+                0%
+            </span>
+        </div>
+
+        <div class="progress-bar">
+            <div
+                id="progressFill"
+                class="progress-fill">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RESULT -->
+
+    <div id="scanResult" class="scan-result">
+
+        <div class="result-icon">✓</div>
+
+        <h2>SCAN COMPLETED</h2>
+
+        <p id="resultMessage">
+            AI scan results will appear here.
+        </p>
+
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="navigation">
+
+        <a
+            href="precautions.html"
+            class="btn secondary">
+
+            ← PREVIOUS
+
+        </a>
+
+        <a
+            id="dashboardButton"
+            class="btn disabled"
+            aria-disabled="true">
+
+            WORKERS DASHBOARD →
+
+        </a>
+
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
